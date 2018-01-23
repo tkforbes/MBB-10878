@@ -17,7 +17,7 @@ import subprocess
 
 # run a command, "process" its output, and save data of interest to a list.
 
-proc= subprocess.check_output( ["grep", "in", "myfile.txt"], shell=False )
+proc= subprocess.check_output( ["gawk", "-f", "print.awk"], shell=False )
 
 mylist = []
 mylist.append(proc.decode("utf-8").strip())
