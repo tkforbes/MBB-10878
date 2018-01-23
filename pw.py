@@ -11,5 +11,8 @@ import subprocess
 
 uid = pwd.getpwuid(1000)
 print(uid)
+print(uid.pw_name)
+
+print("")
 nam = pwd.getpwnam('root')
 print(nam)
