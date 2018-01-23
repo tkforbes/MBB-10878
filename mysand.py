@@ -14,13 +14,22 @@ import subprocess
 #rc= subprocess.run( ["exit 1"], shell=True, check=False )
 #proc= subprocess.run( ["/usr/bin/wc", "vali_guid.py"], stdout=subprocess.PIPE, shell=False, check=False )
 
+
+# run a command, "process" its output, and save data of interest to a list.
+
 proc= subprocess.check_output( ["grep", "in", "myfile.txt"], shell=False )
+
+mylist = []
+mylist.append(proc.decode("utf-8").strip())
+
+print(mylist)
+print(len(mylist))
 
 print(proc.decode("utf-8").strip())
 
-with os.popen('ps -ef') as pse:
-  for line in pse:
-    print( line.strip() )
+#with os.popen('ps -ef') as pse:
+#  for line in pse:
+#    print( line.strip() )
 
 
 #while True:
