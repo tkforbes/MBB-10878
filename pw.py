@@ -7,6 +7,7 @@
 import sys
 import os
 import pwd
+import grp
 import subprocess
 
 uid = pwd.getpwuid(1000)
@@ -16,3 +17,10 @@ print(uid.pw_name)
 print("")
 nam = pwd.getpwnam('root')
 print(nam)
+
+for p in pwd.getpwall():
+    print ( p[0], grp.getgrgid(p[3])[0] )
+    print ( p )
+
+
+
