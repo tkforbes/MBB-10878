@@ -1,0 +1,14 @@
+load config file (YAML), storing list of excluded users.
+
+get list of users and their uid, gid from system.
+
+reduce that list, removing any excluded users (described by config file YAML).
+
+ask AD for a list of details, using reduced users list as a filter.
+
+compare user's attributes of the system list to user's attributes of the AD list.
+  
+depending on nature of the difference or match, an individual user's details belong on one of three reports
+    matching - user name, uid, gid, email
+    non-matching - user name, system uid, AD uid, system gid, AD gid, AD email
+    unmatched - system user name
