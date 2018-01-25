@@ -1,0 +1,12 @@
+# this is the configuration file for the the uid / gid checking utility.
+
+excluded_users:
+  - root
+  - daemon
+  - bin
+  - sys
+  - sync
+  - games
+  - man
+  - news
+  - uucp
