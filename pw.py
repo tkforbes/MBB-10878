@@ -11,24 +11,24 @@ import grp
 #import subprocess
 
 def printAllUsers( ):
-  print("")
+  print()
   for u in pwd.getpwall():
     print(u[0], u[2])
 
 
 def printUserGroups( ):
-  print("")
+  print()
   for p in pwd.getpwall():
     print ( p[0], grp.getgrgid(p[3])[0] )
 
 def printUser(n):
-  print("")
+  print()
   uid = pwd.getpwuid(n)
   print(uid)
   print(uid.pw_name)
 
 def printUserNam(name):
-  print("")
+  print()
   nam = pwd.getpwnam(name)
   print(nam)
 
