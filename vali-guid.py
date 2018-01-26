@@ -18,8 +18,8 @@
 
 # load the list of excluded users from the YAML config file
 def loadConfig( ):
-  excluded_users= []  
   import yaml
+  excluded_users= []  
   with open("config.yaml", 'r') as stream:
     try:
       config= yaml.safe_load(stream)
@@ -51,3 +51,13 @@ for n, j in enumerate(pwd.getpwall()):
     users.append(j)
 
 print('users:', users)
+
+# request the user details from AD based on user name
+
+# user found in AD?
+
+# uid equal in AD?
+
+# gid equal in AD?
+
+# print reports
