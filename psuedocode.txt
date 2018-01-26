@@ -4,7 +4,7 @@ get list of users and their uid, gid from system.
 
 reduce that list, removing any excluded users (described by config file YAML).
 
-ask AD for a list of details, using reduced users list as a filter.
+ask AD for a list of user details, using reduced users list as a filter.
 
 compare user's attributes of the system list to user's attributes of the AD list.
   

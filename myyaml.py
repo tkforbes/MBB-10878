@@ -7,10 +7,15 @@
 import yaml
 with open("config.yaml", 'r') as stream:
         try:
-                   cfg = yaml.safe_load(stream)
+                    cfg = yaml.safe_load(stream)
                     xusers= cfg['excluded_users']
                     print(cfg)
+                    print()
                     print(xusers)
+                    print()
+                    for n in xusers:
+                        print(n)
+
                     print(xusers[2])
 
         except yaml.YAMLError as exc:
