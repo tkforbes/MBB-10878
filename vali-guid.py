@@ -18,34 +18,25 @@ def loadConfig(excluded_users):
   import yaml
   with open("config.yaml", 'r') as stream:
     try:
-      cfg= yaml.safe_load(stream)
-      excluded_users[:] =cfg['excluded_users']
+      config= yaml.safe_load(stream)
+      excluded_users[:] =config['excluded_users']
     except yaml.YAMLError as exc:
       print(exc)
 
+# load excluded users from configuration
 excluded_users=[]
 loadConfig(excluded_users)
 
+# get the list of users from the system
 import pwd
 system_users= pwd.getpwall()
 
+# build a list of retained users by skipping any that are in the list of exclusions
 retained_users=[]
 for n, j in enumerate(system_users):
-  if False == (j.pw_name in excluded_users):
+  if j.pw_name not in excluded_users:
     retained_users.append(j)
 
 print('users:', retained_users)
 
-
-#print(system_users)
-
-#print(excluded_users)
-#print('==>', system_users[0].pw_name)
-#for n, x in enumerate(excluded_users):
-#  if x in l:
-#    print(n, x)
-
-#matches = [x for x in excluded_users if  ]
-
-#print(excluded_users)
 
