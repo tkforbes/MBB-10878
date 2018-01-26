@@ -14,7 +14,11 @@
 
 # 5. exit with a meaningful return code. zero for fully-matched.
 
-def loadConfig(excluded_users):
+
+
+# load the list of excluded users from the YAML config file
+def loadConfig( ):
+  excluded_users= []  
   import yaml
   with open("config.yaml", 'r') as stream:
     try:
@@ -23,20 +27,27 @@ def loadConfig(excluded_users):
     except yaml.YAMLError as exc:
       print(exc)
 
+    return excluded_users
+
+
+#
+# program begins here
+#
+
 # load excluded users from configuration
-excluded_users=[]
-loadConfig(excluded_users)
+excluded_users= loadConfig( )
 
-# get the list of users from the system
+## might want some sanity check here. 
+## it would not be normal to have too few exclusions; that might indicate something
+## is wrong with the configuration.
+
+# build a list of users of interest
 import pwd
-system_users= pwd.getpwall()
+users=[]
+for n, j in enumerate(pwd.getpwall()):
 
-# build a list of retained users by skipping any that are in the list of exclusions
-retained_users=[]
-for n, j in enumerate(system_users):
+  # ignore excluded users    
   if j.pw_name not in excluded_users:
-    retained_users.append(j)
+    users.append(j)
 
-print('users:', retained_users)
-
-
+print('users:', users)
