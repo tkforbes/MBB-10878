@@ -1,3 +1,13 @@
+#####
+##### It is not a good idea to have this configuration file as part of the repo, at least
+##### not in this format, because cloning the repo will install a configuration file
+##### that is unlikely to suit the purpose of the target environment. It might even cause
+##### some valid accounts not to be checked on the target machine.
+#####
+##### What is the process of handling configuration files with git?
+#####
+#####
+
 # this is the configuration file for the the uid / gid checking utility.
 
 excluded_users:
